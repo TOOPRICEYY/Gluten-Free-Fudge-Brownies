@@ -29,12 +29,23 @@ int main()
     my_list.back() = 73;
 
     my_list.pop_front();
+<<<<<<< HEAD
     my_list.print();
     my_list.pop_back();
 //cout << "hello" << endl;
 
     List<int> list2(my_list);
     list2.print();
+=======
+
+    my_list.pop_back();
+    cout << "cassdas" << endl;
+
+    List<int> list2(my_list);
+    cout << "casdas" << endl;
+            my_list.print();
+
+>>>>>>> 0045c960e751e833586486fdcd96e319a572e4f2
     list2 = my_list;
     //cout << "hello" << endl;
     my_list.print();

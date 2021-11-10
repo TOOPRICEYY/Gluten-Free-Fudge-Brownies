@@ -145,21 +145,23 @@ private:
   //EFFECTS:  copies all nodes from other to this
   void copy_all(const List<T> &other) {
     assert(empty());
-    Node *ptr = other.first;
-    while(ptr->next != nullptr) { // if doesnt go through, remember to get last node, consider using a for loop for()
-      Node * n = new Node;
+    if(!other.empty()){
+      Node *ptr = other.first;
+      while(ptr->next != nullptr) { // if doesnt go through, remember to get last node, consider using a for loop for()
+        Node * n = new Node;
+        n->next = ptr->next;
+        n->prev = ptr->prev;
+        ptr = ptr->next;
+        ++siz;
+      }
+      Node * n = new Node; // get the last node
       n->next = ptr->next;
       n->prev = ptr->prev;
-      ptr = ptr->next;
+
+      first = other.first;
+      last = other.last;
       ++siz;
     }
-    Node * n = new Node; // get the last node
-    n->next = ptr->next;
-    n->prev = ptr->prev;
-
-    first = other.first;
-    last = other.last;
-    ++siz;
   }
 
   Node *first;   // points to first Node in list, or nullptr if list is empty
