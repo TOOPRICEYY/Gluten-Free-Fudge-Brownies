@@ -253,16 +253,10 @@ public:
   }
 
 
-  Node * get_start(){
-    return start;
 
-  }
-  Node * get_end(){
-    return end;
-  }
 
   void print(){
-    for(Node * n = start n; n=n->next){
+    for(Node * n = first; n; n=n->next){
       cout << n->datum << ", ";
 
     }
