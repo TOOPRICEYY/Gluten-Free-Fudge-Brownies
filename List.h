@@ -95,10 +95,13 @@ public:
   void pop_front() {
     assert(!empty());
     Node *rip = first;
+    if(--siz!=1){
     first = first->next;
     first->prev = nullptr;
+    }else{
+      first = last = nullptr;
+    }
     delete rip;
-    --siz;
   }
 
   //REQUIRES: list is not empty
@@ -107,10 +110,14 @@ public:
   void pop_back() {
     assert(!empty());
     Node *rip = last;
+    if(--siz!=1){
     last = last->prev;
     last->next = nullptr;
+    }else{
+      last = first = nullptr;
+    }
     delete rip;
-    --siz;
+    
   }
 
   //MODIFIES: may invalidate list iterators

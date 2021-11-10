@@ -27,10 +27,11 @@ int main()
 
     my_list.front() = 73;
     my_list.back() = 73;
-    
 
     my_list.pop_front();
     my_list.pop_back();
+    my_list.print();
+
 
     List<int> list2(my_list);
     list2 = my_list;
