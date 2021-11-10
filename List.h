@@ -20,8 +20,8 @@ class List {
   //OVERVIEW: a doubly-linked, double-ended list with Iterator interface
 public:
 
-  List() : first(nullptr), last(nullptr), siz(0) {} // ctor
-  List(const List &other) : first(nullptr), last(nullptr), siz(0) { // copy ctor
+  List() : siz(0) ,first(nullptr), last(nullptr){} // ctor
+  List(const List &other) : siz(0), first(nullptr), last(nullptr) { // copy ctor
     copy_all(other);
   }
   ~List() {  // dtor
@@ -154,6 +154,7 @@ public:
     // Your iterator should implement the following public operators: *,
     // ++ (prefix), default constructor, == and !=.
 
+
   public:
     // This operator will be used to test your code. Do not modify it.
     // Requires that the current element is dereferenceable.
@@ -185,7 +186,9 @@ public:
     // add any friend declarations here
     friend class List;
     // construct an Iterator at a specific position
-    Iterator(Node *p); // what does this mean
+    Iterator(Node *p){
+      node_ptr = p;
+    }
 
   };//List::Iterator
   ////////////////////////////////////////

@@ -9,6 +9,10 @@ using namespace std;
 
 TEST(test_stub) {
     // Add test code here
+    List<int> my_list;
+    List<int>::Iterator iter = my_list.begin();
+    ++iter;
+
     ASSERT_TRUE(true);
 }
 
