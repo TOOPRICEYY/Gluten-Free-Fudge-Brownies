@@ -124,13 +124,16 @@ private:
     assert(!empty());
     Node *ptr = other.first;
     while(ptr->next != nullptr) { // if doesnt go through, remember to get last node, consider using a for loop for()
-      Node *n = new Node;
-      n = ptr;
+      Node * n = new Node;
+      n->next = ptr->next;
+      n->prev = ptr->prev;
       ptr = ptr->next;
       ++siz;
     }
-    Node *n = new Node; // get the last node
-    n = ptr;
+    Node * n = new Node; // get the last node
+    n->next = ptr->next;
+    n->prev = ptr->prev;
+    
     first = other.first;
     last = other.last;
     ++siz;
