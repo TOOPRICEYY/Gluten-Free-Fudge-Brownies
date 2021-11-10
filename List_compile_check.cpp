@@ -29,14 +29,16 @@ int main()
     my_list.back() = 73;
 
     my_list.pop_front();
-
+    my_list.print();
     my_list.pop_back();
 
     List<int> list2(my_list);
    
 
     list2 = my_list;
-
+    //cout << "hello" << endl;
+    my_list.print();
+    
     List<int>::Iterator iter = my_list.begin();
     my_list.insert(iter, 42);
     iter = my_list.begin();
