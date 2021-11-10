@@ -111,7 +111,6 @@ public:
   // of the class must be able to create, copy, assign, and destroy Lists
 
 private:
-   int siz;
   //a private type
   struct Node {
     Node *next;
