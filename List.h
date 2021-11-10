@@ -92,7 +92,7 @@ public:
     assert(!empty());
     Node *rip = last;
     last = last->prev;
-    last.next = nullptr;
+    last->next = nullptr;
     delete rip;
     --siz;
   }
