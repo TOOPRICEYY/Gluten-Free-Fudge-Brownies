@@ -70,7 +70,7 @@ public:
     p->datum = datum;
     p->next = first;
     p->prev = nullptr;
-    first->prev = p;
+    if(!empty())first->prev = p;
     first = p;
     if(++siz==1){
       last = first;
@@ -83,7 +83,7 @@ public:
     p->datum = datum;
     p->prev = last;
     p->next =  nullptr;
-    last->next = p;
+    if(!empty()) last->next = p;
     last = p;
     if(++siz==1){
       first = last;

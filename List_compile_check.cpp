@@ -21,9 +21,12 @@ int main()
     cout << (my_list.size() == size) << endl;
 
     my_list.push_front(42);
+
     my_list.push_back(42);
 
-    my_list.print();
+
+        my_list.print();
+
 
 
     my_list.front() = 73;
