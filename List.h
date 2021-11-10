@@ -222,7 +222,6 @@ public:
   //REQUIRES: i is a valid iterator associated with this list
   //EFFECTS: inserts datum before the element at the specified position.
   void insert(Iterator i, const T &datum);
-  assert(i.node_ptr);
   Node * n = new Node; // create node
   n->datum = datum; // insert datum
   if(i.node_ptr == first) {
