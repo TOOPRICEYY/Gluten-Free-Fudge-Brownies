@@ -111,6 +111,7 @@ public:
   // of the class must be able to create, copy, assign, and destroy Lists
 
 private:
+   int siz;
   //a private type
   struct Node {
     Node *next;
@@ -203,7 +204,7 @@ public:
   //MODIFIES: may invalidate other list iterators
   //EFFECTS: Removes a single element from the list container
   void erase(Iterator i) {
-    assert(i != Iterator.end());
+    assert(end() != i);
     assert(!empty());
     Node * behind = i.node_ptr->prev;
     Node * front = i.node_ptr->next;
