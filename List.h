@@ -96,6 +96,7 @@ public:
     assert(!empty());
     Node *rip = first;
     first = first->next;
+    first->prev = nullptr;
     delete rip;
     --siz;
   }
