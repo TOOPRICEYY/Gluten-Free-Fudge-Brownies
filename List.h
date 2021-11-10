@@ -124,8 +124,7 @@ public:
   //EFFECTS:  removes all items from the list
   void clear() {
     while(!empty()){
-      cout << "siz: " << siz << endl;
-      print();
+ 
       pop_back();
     }
   }

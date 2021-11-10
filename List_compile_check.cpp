@@ -36,7 +36,6 @@ int main()
    
 
     list2 = my_list;
-    //cout << "hello" << endl;
     my_list.print();
     
     List<int>::Iterator iter = my_list.begin();
@@ -78,7 +77,6 @@ int main()
     List<int> list4;
     list4.push_back(4);
     cout << list4.size() << endl;
-    cout << "asdsdf" << endl;
     my_list.print();
     my_list.clear();
 
