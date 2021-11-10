@@ -95,7 +95,7 @@ public:
   void pop_front() {
     assert(!empty());
     Node *rip = first;
-    if(--siz!=1){
+    if(--siz!=0){
     first = first->next;
     first->prev = nullptr;
     }else{
@@ -110,7 +110,7 @@ public:
   void pop_back() {
     assert(!empty());
     Node *rip = last;
-    if(--siz!=1){
+    if(--siz!=0){
     last = last->prev;
     last->next = nullptr;
     }else{
@@ -144,7 +144,7 @@ private:
   //REQUIRES: list is empty
   //EFFECTS:  copies all nodes from other to this
   void copy_all(const List<T> &other) {
-    assert(!empty());
+    assert(empty());
     Node *ptr = other.first;
     while(ptr->next != nullptr) { // if doesnt go through, remember to get last node, consider using a for loop for()
       Node * n = new Node;
