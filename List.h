@@ -24,13 +24,8 @@ class List {
   //OVERVIEW: a doubly-linked, double-ended list with Iterator interface
 public:
 
-<<<<<<< HEAD
-  List() : first(nullptr), last(nullptr), siz(0) {} // ctor
-  List(const List &other) :  first(nullptr), last(nullptr), siz(0) { // copy ctor
-=======
   List() : first(nullptr), last(nullptr), siz(0){} // ctor
   List(const List &other) : first(nullptr), last(nullptr),siz(0)  { // copy ctor
->>>>>>> bf187ccfde957f988e57d3c2de25b52b908c42ea
     copy_all(other);
   }
   ~List() {  // dtor
