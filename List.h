@@ -124,6 +124,8 @@ public:
   //EFFECTS:  removes all items from the list
   void clear() {
     while(!empty()){
+      cout << "siz: " << siz << endl;
+      print();
       pop_back();
     }
   }
@@ -243,6 +245,7 @@ public:
       behind->next = front;
       front->prev = behind;
     }
+    --siz;
     delete i.node_ptr;
     
   }

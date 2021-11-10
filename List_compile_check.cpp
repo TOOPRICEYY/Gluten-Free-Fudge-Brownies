@@ -31,11 +31,9 @@ int main()
     my_list.pop_front();
 
     my_list.pop_back();
-    cout << "cassdas" << endl;
 
     List<int> list2(my_list);
-    cout << "casdas" << endl;
-            my_list.print();
+   
 
     list2 = my_list;
 
@@ -78,7 +76,8 @@ int main()
     List<int> list4;
     list4.push_back(4);
     cout << list4.size() << endl;
-
+    cout << "asdsdf" << endl;
+    my_list.print();
     my_list.clear();
 
     return 0;
