@@ -70,7 +70,7 @@ public:
   void push_back(const T &datum) {
     Node *p = new Node;
     p->datum = datum;
-    p->previous = last;
+    p->prev = last;
     last = p;
     ++siz;
   }
@@ -91,7 +91,7 @@ public:
   void pop_back() {
     assert(!empty());
     Node *rip = last;
-    last = last->previous;
+    last = last->prev;
     last.next = nullptr;
     delete rip;
     --siz;
@@ -100,16 +100,9 @@ public:
   //MODIFIES: may invalidate list iterators
   //EFFECTS:  removes all items from the list
   void clear() {
-    Node *cur = first;
-    Node *temp;
-    while (cur.next != nullptr) {
-      temp = cur.next;
-      delete cur;
-      cur = temp;
+    while(!empty()){
+      pop_back();
     }
-    siz = 0;
-    delete cur;
-    delete temp;
   }
 
   // You should add in a default constructor, destructor, copy constructor,
@@ -212,12 +205,12 @@ public:
   void erase(Iterator i) {
     assert(i != Iterator.end());
     assert(!empty());
-    Node * behind = i.node_ptr->previous;
+    Node * behind = i.node_ptr->prev;
     Node * front = i.node_ptr->next;
     if (front == nullptr || behind == nullptr) {}
     else { // stitch if erasure occurs in middle
       behind->next = front;
-      front->previous = behind;
+      front->prev = behind;
     }
     delete i.node_ptr;
     
@@ -232,18 +225,18 @@ public:
   if(i.node_ptr == first) {
     push_front(datum);
     first = n;
-    n->previous = nullptr;
+    n->prev = nullptr;
     n->next = i.node_ptr;
     return;
     }
   if(empty()) {
     first = n;
-    n->previous = nullptr;
+    n->prev = nullptr;
     n->next = nullptr;
   }
   n->next = i.node_ptr;
-  n->previous = i.node_ptr->previous;
-  i.node_ptr->previous = n;
+  n->prev = i.node_ptr->prev;
+  i.node_ptr->prev = n;
   ++siz; // increment size
 
 };//List
