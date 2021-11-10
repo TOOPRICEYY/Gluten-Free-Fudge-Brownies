@@ -92,7 +92,7 @@ public:
     assert(!empty());
     Node *rip = last;
     last = last->prev;
-    last.next = nullptr;
+    last->next = nullptr;
     delete rip;
     --siz;
   }
@@ -111,7 +111,7 @@ public:
   // of the class must be able to create, copy, assign, and destroy Lists
 
 private:
-   int siz = 0;
+   int siz;
   //a private type
   struct Node {
     Node *next;
@@ -170,12 +170,12 @@ public:
       return node_ptr->datum;
     }
     bool operator==(Iterator rhs) const {
-      if(node_ptr == rhs.node_ptr) {return true}
+      if(node_ptr == rhs.node_ptr) {return true;}
       return false;
     }
 
     bool operator!=(Iterator rhs) const {
-      if(node_ptr != rhs.node_ptr) {return true}
+      if(node_ptr != rhs.node_ptr) {return true;}
       return false;
     }
   private:
@@ -204,7 +204,7 @@ public:
   //MODIFIES: may invalidate other list iterators
   //EFFECTS: Removes a single element from the list container
   void erase(Iterator i) {
-    assert(i != Iterator.end());
+    assert(end() != i);
     assert(!empty());
     Node * behind = i.node_ptr->prev;
     Node * front = i.node_ptr->next;
