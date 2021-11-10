@@ -24,8 +24,13 @@ class List {
   //OVERVIEW: a doubly-linked, double-ended list with Iterator interface
 public:
 
+<<<<<<< HEAD
   List() : first(nullptr), last(nullptr), siz(0) {} // ctor
   List(const List &other) :  first(nullptr), last(nullptr), siz(0) { // copy ctor
+=======
+  List() : first(nullptr), last(nullptr), siz(0){} // ctor
+  List(const List &other) : first(nullptr), last(nullptr),siz(0)  { // copy ctor
+>>>>>>> bf187ccfde957f988e57d3c2de25b52b908c42ea
     copy_all(other);
   }
   ~List() {  // dtor
@@ -69,8 +74,12 @@ public:
     Node *p = new Node;
     p->datum = datum;
     p->next = first;
+    p->prev = nullptr;
+    first->prev = p;
     first = p;
-    ++siz;
+    if(++siz==1){
+      last = first;
+    }
   }
 
   //EFFECTS:  inserts datum into the back of the list
@@ -78,8 +87,12 @@ public:
     Node *p = new Node;
     p->datum = datum;
     p->prev = last;
+    p->next =  nullptr;
+    last->next = p;
     last = p;
-    ++siz;
+    if(++siz==1){
+      first = last;
+    }
   }
   //REQUIRES: list is not empty
   //MODIFIES: may invalidate list iterators
