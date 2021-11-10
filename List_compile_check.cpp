@@ -29,14 +29,12 @@ int main()
     my_list.back() = 73;
 
     my_list.pop_front();
-    my_list.print();
     my_list.pop_back();
 
     List<int> list2(my_list);
    
 
     list2 = my_list;
-    my_list.print();
     
     List<int>::Iterator iter = my_list.begin();
     my_list.insert(iter, 42);
@@ -77,7 +75,6 @@ int main()
     List<int> list4;
     list4.push_back(4);
     cout << list4.size() << endl;
-    my_list.print();
     my_list.clear();
 
     return 0;
