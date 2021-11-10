@@ -111,6 +111,7 @@ public:
   // of the class must be able to create, copy, assign, and destroy Lists
 
 private:
+   int siz = 0;
   //a private type
   struct Node {
     Node *next;
@@ -138,7 +139,7 @@ private:
 
   Node *first;   // points to first Node in list, or nullptr if list is empty
   Node *last;    // points to last Node in list, or nullptr if list is empty
-  int siz;
+  
 
 public:
   ////////////////////////////////////////
@@ -218,7 +219,7 @@ public:
 
   //REQUIRES: i is a valid iterator associated with this list
   //EFFECTS: inserts datum before the element at the specified position.
-  void insert(Iterator i, const T &datum);
+  void insert(Iterator i, const T &datum){
   assert(i.node_ptr);
   Node * n = new Node; // create node
   n->datum = datum; // insert datum
@@ -238,6 +239,7 @@ public:
   n->prev = i.node_ptr->prev;
   i.node_ptr->prev = n;
   ++siz; // increment size
+  }
 
 };//List
 
