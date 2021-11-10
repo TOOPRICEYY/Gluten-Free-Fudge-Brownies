@@ -29,11 +29,14 @@ int main()
     my_list.back() = 73;
 
     my_list.pop_front();
-    my_list.pop_back();
-    my_list.print();
 
+    my_list.pop_back();
+    cout << "cassdas" << endl;
 
     List<int> list2(my_list);
+    cout << "casdas" << endl;
+            my_list.print();
+
     list2 = my_list;
 
     List<int>::Iterator iter = my_list.begin();
