@@ -24,8 +24,8 @@ class List {
   //OVERVIEW: a doubly-linked, double-ended list with Iterator interface
 public:
 
-  List() : siz(0) ,first(nullptr), last(nullptr){} // ctor
-  List(const List &other) : siz(0), first(nullptr), last(nullptr) { // copy ctor
+  List() : first(nullptr), last(nullptr), siz(0) {} // ctor
+  List(const List &other) :  first(nullptr), last(nullptr), siz(0) { // copy ctor
     copy_all(other);
   }
   ~List() {  // dtor
@@ -148,7 +148,7 @@ private:
 
   Node *first;   // points to first Node in list, or nullptr if list is empty
   Node *last;    // points to last Node in list, or nullptr if list is empty
-  int siz;
+  int siz = 0;
 
 public:
   ////////////////////////////////////////
@@ -251,9 +251,6 @@ public:
   i.node_ptr->prev = n;
   ++siz; // increment size
   }
-
-
-
 
   void print(){
     for(Node * n = first; n; n=n->next){
