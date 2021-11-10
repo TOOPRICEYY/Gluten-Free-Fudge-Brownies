@@ -224,7 +224,7 @@ public:
 
   //REQUIRES: i is a valid iterator associated with this list
   //EFFECTS: inserts datum before the element at the specified position.
-  void insert(Iterator i, const T &datum);
+  void insert(Iterator i, const T &datum) {
   Node * n = new Node; // create node
   n->datum = datum; // insert datum
   if(i.node_ptr == first) {
@@ -243,7 +243,7 @@ public:
   n->prev = i.node_ptr->prev;
   i.node_ptr->prev = n;
   ++siz; // increment size
-
+  }
 };//List
 
 
