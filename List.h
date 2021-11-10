@@ -7,6 +7,7 @@
  * EECS 280 Project 4
  */
 
+
 #include <iostream>
 #include <cassert> //assert
 #include <cstddef> //NULL
@@ -14,6 +15,9 @@
 #include <string>
 #include <utility>
 
+
+using std::endl; 
+using std::cout;
 
 template <typename T>
 class List {
@@ -27,6 +31,9 @@ public:
   ~List() {  // dtor
     clear();
   }
+
+
+
 
 
   //EFFECTS:  returns true if the list is empty
@@ -134,7 +141,7 @@ private:
     Node * n = new Node; // get the last node
     n->next = ptr->next;
     n->prev = ptr->prev;
-    
+
     first = other.first;
     last = other.last;
     ++siz;
@@ -247,7 +254,25 @@ public:
   ++siz; // increment size
   }
 
+
+  Node * get_start(){
+    return start;
+
+  }
+  Node * get_end(){
+    return end;
+  }
+
+  void print(){
+    for(Node * n = start n; n=n->next){
+      cout << n->datum << ", ";
+
+    }
+    cout << endl;
+  }
 };//List
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////

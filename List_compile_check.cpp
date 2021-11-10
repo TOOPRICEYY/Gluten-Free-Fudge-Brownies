@@ -25,6 +25,7 @@ int main()
 
     my_list.front() = 73;
     my_list.back() = 73;
+    my_list.print();
 
     my_list.pop_front();
     my_list.pop_back();
