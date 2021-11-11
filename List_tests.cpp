@@ -52,17 +52,18 @@ TEST(test_ctor) {
     // Add test code here
     List<double> my_list;
     
-    //List<double>::Iterator iter = my_list.begin();
     my_list.push_back(5.2);
     my_list.push_back(4.3);
+    List<double>::Iterator iter = my_list.begin();
+    ++iter;
     my_list.push_front(6.8);
     my_list.push_front(1.2);
     my_list.pop_front();
     my_list.pop_back();
     List<double> list2(my_list);
-    //List<double>::Iterator iter2 = list2.begin();
+    List<double>::Iterator iter2 = list2.begin();
     ASSERT_TRUE(!list2.empty());
-    //ASSERT_EQUAL(iter, iter2);
+    ASSERT_TRUE(*iter == *iter2);
     my_list.clear();
     list2.clear();    
 }
