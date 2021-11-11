@@ -252,7 +252,7 @@ public:
       behind->next = front;
       front->prev = behind;
     }else{
-      front = last = nullptr;
+      first = last = nullptr;
     }
     --siz;
     delete i.node_ptr;
@@ -284,7 +284,6 @@ public:
 
   void print(){
     if(empty())return;
-    cout << first << endl;
     for(Node * n = first; n; n=n->next){
       cout << n->datum << ", ";
 
