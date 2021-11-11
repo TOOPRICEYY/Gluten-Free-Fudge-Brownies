@@ -117,7 +117,6 @@ public:
       last = first = nullptr;
     }
     delete rip;
-    
   }
 
   //MODIFIES: may invalidate list iterators
@@ -243,10 +242,17 @@ public:
     assert(!empty());
     Node * behind = i.node_ptr->prev;
     Node * front = i.node_ptr->next;
-    if (front == nullptr || behind == nullptr) {}
-    else { // stitch if erasure occurs in middle
+    if(front == nullptr && behind!=nullptr){
+      behind->next = nullptr;
+      last = behind;
+    }else if(behind == nullptr && front!=nullptr) {
+      front->prev = nullptr;
+      first = front;
+    }else if(behind != nullptr && front != nullptr) { // stitch if erasure occurs in middle
       behind->next = front;
       front->prev = behind;
+    }else{
+      front = last = nullptr;
     }
     --siz;
     delete i.node_ptr;
