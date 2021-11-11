@@ -6,7 +6,7 @@
 using namespace std;
 
 // Add your test cases here
-/*
+
 TEST(ittershit) {
     // Add test code here
     List<int> my_list;
@@ -35,7 +35,7 @@ TEST(ittershit) {
     ASSERT_TRUE(list4.empty());
 
 }
-*/
+
 
 TEST_MAIN()
 
@@ -43,16 +43,16 @@ TEST(test_ctor) {
     // Add test code here
     List<double> my_list;
     
-    //List<double>::Iterator iter = my_list.begin();
+    List<double>::Iterator iter = my_list.begin();
     my_list.push_back(5.2);
     my_list.push_back(4.3);
     my_list.push_front(6.8);
     my_list.push_front(1.2);
-    //my_list.pop_front();
-    //my_list.pop_back();
+    my_list.pop_front();
+    my_list.pop_back();
     List<double> list2(my_list);
-    //List<double>::Iterator iter2 = list2.begin();
-    //ASSERT_EQUAL(iter, iter2);
+    List<double>::Iterator iter2 = list2.begin();
+    ASSERT_EQUAL(iter, iter2);
     my_list.clear();
     list2.clear();
     list2.print();
