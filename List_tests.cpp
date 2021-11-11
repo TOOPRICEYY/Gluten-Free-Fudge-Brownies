@@ -24,13 +24,13 @@ TEST(ittergarb) {
     List<int>::Iterator iter = my_list.begin();
     ++iter;
     
-    ASSERT_TRUE(iter.get()->datum==1);
+    ASSERT_TRUE(*iter==1);
     my_list.pop_back();
     
     --iter;
     ++iter;
     ++iter;
-    ASSERT_TRUE(iter.get()->datum==2);
+    ASSERT_TRUE(*iter==2);
     
     int i = 3; while(i-->0)my_list.pop_back();
     List<int> list3(my_list);

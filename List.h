@@ -194,9 +194,6 @@ public:
       return false;
     }
 
-    Node * get(){
-      return node_ptr;
-    }
 
   private:
     Node *node_ptr; //current Iterator position is a List node
