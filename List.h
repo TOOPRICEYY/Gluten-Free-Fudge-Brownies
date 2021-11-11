@@ -268,6 +268,7 @@ public:
   ++siz; // increment size
   }
 
+  /*
   void print(){
     if(empty())return;
     for(Node * n = first; n; n=n->next){
@@ -276,6 +277,7 @@ public:
     }
     cout << endl;
   }
+  */
 };//List
 
 

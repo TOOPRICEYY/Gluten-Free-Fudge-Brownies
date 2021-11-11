@@ -32,8 +32,6 @@ TEST(ittergarb) {
     ++iter;
     ASSERT_TRUE(iter.get()->datum==2);
     
-    
-    
     int i = 3; while(i-->0)my_list.pop_back();
     List<int> list3(my_list);
     ASSERT_TRUE(list3.empty());
@@ -66,9 +64,7 @@ TEST(test_ctor) {
     ASSERT_TRUE(!list2.empty());
     //ASSERT_EQUAL(iter, iter2);
     my_list.clear();
-    list2.clear();
-    list2.print();
-    
+    list2.clear();    
 }
 
 TEST_MAIN()
