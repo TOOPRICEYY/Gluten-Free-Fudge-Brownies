@@ -123,7 +123,7 @@ public:
   //MODIFIES: may invalidate list iterators
   //EFFECTS:  removes all items from the list
   void clear() {
-    while(!empty()){c
+    while(!empty()){
       pop_back();
     }
   }
