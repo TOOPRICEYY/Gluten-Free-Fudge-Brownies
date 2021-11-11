@@ -123,8 +123,7 @@ public:
   //MODIFIES: may invalidate list iterators
   //EFFECTS:  removes all items from the list
   void clear() {
-    while(!empty()){
- 
+    while(!empty()){c
       pop_back();
     }
   }
@@ -207,6 +206,11 @@ public:
       if(node_ptr != rhs.node_ptr) {return true;}
       return false;
     }
+
+    Node * get(){
+      return node_ptr;
+    }
+
   private:
     Node *node_ptr; //current Iterator position is a List node
     // add any additional necessary member variables here
