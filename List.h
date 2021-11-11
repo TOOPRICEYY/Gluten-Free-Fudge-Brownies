@@ -283,6 +283,8 @@ public:
   }
 
   void print(){
+    if(empty())return;
+    cout << first << endl;
     for(Node * n = first; n; n=n->next){
       cout << n->datum << ", ";
 

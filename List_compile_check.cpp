@@ -39,8 +39,10 @@ int main()
     cout << "hello" << endl;
     my_list.print();
     my_list.erase(iter);
-    cout << "right here" << endl;
+        cout << "right here" << endl;
+
     my_list.print();
+
     iter = my_list.begin();
 
     List<int>::Iterator iter2 = my_list.end();
