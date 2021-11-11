@@ -252,7 +252,7 @@ public:
       behind->next = front;
       front->prev = behind;
     }else{
-      front = last = nullptr;
+      first = last = nullptr;
     }
     --siz;
     delete i.node_ptr;
@@ -266,9 +266,7 @@ public:
   n->datum = datum; // insert datum
   if(i.node_ptr == first) {
     push_front(datum);
-    first = n;
-    n->prev = nullptr;
-    n->next = i.node_ptr;
+    delete n;
     return;
     }
   if(empty()) {
