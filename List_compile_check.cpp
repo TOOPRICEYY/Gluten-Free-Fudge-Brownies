@@ -21,16 +21,13 @@ int main()
     cout << (my_list.size() == size) << endl;
 
     my_list.push_front(42);
-
     my_list.push_back(42);
-cout << "you screwed up here" << endl;
 
     my_list.front() = 73;
     my_list.back() = 73;
 
     my_list.pop_front();
     my_list.pop_back();
-cout << "you screwed up here" << endl;
     List<int> list2(my_list);
    
 
@@ -39,7 +36,11 @@ cout << "you screwed up here" << endl;
     List<int>::Iterator iter = my_list.begin();
     my_list.insert(iter, 42);
     iter = my_list.begin();
+    cout << "hello" << endl;
+    my_list.print();
     my_list.erase(iter);
+    cout << "right here" << endl;
+    my_list.print();
     iter = my_list.begin();
 
     List<int>::Iterator iter2 = my_list.end();
