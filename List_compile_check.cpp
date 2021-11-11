@@ -35,11 +35,11 @@ int main()
     
     List<int>::Iterator iter = my_list.begin();
     my_list.insert(iter, 42);
+    my_list.print();
     iter = my_list.begin();
-    cout << "hello" << endl;
     my_list.print();
     my_list.erase(iter);
-        cout << "right here" << endl;
+
 
     my_list.print();
 
