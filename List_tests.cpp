@@ -6,8 +6,8 @@
 using namespace std;
 
 // Add your test cases here
-/*
-TEST(ittershit) {
+
+TEST(ittergarb) {
     // Add test code here
     List<int> my_list;
     List<int> list2(my_list);
@@ -17,19 +17,23 @@ TEST(ittershit) {
     my_list.push_front(1);
     my_list.push_back(3);
     my_list.push_front(0);
-
+    
     List<int> list5(my_list);
     ASSERT_TRUE(!list5.empty());
-
+    
     List<int>::Iterator iter = my_list.begin();
     ++iter;
+    
     ASSERT_TRUE(iter.get()->datum==1);
     my_list.pop_back();
-    iter = my_list.end();
+    
     --iter;
+    ++iter;
+    ++iter;
     ASSERT_TRUE(iter.get()->datum==2);
-
-
+    
+    
+    
     int i = 3; while(i-->0)my_list.pop_back();
     List<int> list3(my_list);
     ASSERT_TRUE(list3.empty());
@@ -43,10 +47,8 @@ TEST(ittershit) {
     my_list.clear();
     list5.clear();
 
-}
-*/
 
-TEST_MAIN()
+}
 
 TEST(test_ctor) {
     // Add test code here
@@ -68,3 +70,6 @@ TEST(test_ctor) {
     list2.print();
     
 }
+
+TEST_MAIN()
+

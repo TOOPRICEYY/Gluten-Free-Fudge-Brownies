@@ -236,7 +236,7 @@ public:
     }else if(behind == nullptr && front!=nullptr) {
       front->prev = nullptr;
       first = front;
-    }else if(behind != nullptr && front != nullptr) { // stitch if erasure occurs in middle
+    }else if(behind != nullptr && front != nullptr) {
       behind->next = front;
       front->prev = behind;
     }else{
