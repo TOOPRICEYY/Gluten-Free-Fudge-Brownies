@@ -35,13 +35,10 @@ int main()
     
     List<int>::Iterator iter = my_list.begin();
     my_list.insert(iter, 42);
-    my_list.print();
     iter = my_list.begin();
-    my_list.print();
     my_list.erase(iter);
 
 
-    my_list.print();
 
     iter = my_list.begin();
 

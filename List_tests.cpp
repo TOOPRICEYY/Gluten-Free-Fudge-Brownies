@@ -55,6 +55,7 @@ TEST(test_ctor) {
     my_list.push_back(5.2);
     my_list.push_back(4.3);
     List<double>::Iterator iter = my_list.begin();
+    if(iter == iter){ };
     ++iter;
     my_list.push_front(6.8);
     my_list.push_front(1.2);
@@ -62,8 +63,11 @@ TEST(test_ctor) {
     my_list.pop_back();
     List<double> list2(my_list);
     List<double>::Iterator iter2 = list2.begin();
+    if(iter2 == iter2){ };
     ASSERT_TRUE(!list2.empty());
-    ASSERT_TRUE(*iter == *iter2);
+
+
+    ASSERT_FALSE(iter == iter2);
     my_list.clear();
     list2.clear();    
 }
