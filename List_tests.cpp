@@ -44,6 +44,88 @@ TEST(ittergarb) {
     list2.clear();
     my_list.clear();
     list5.clear();
+
+
+}
+TEST(ittershit) {
+    // Add test code here
+    List<int> my_list;
+    ASSERT_TRUE(my_list.size()==0);
+
+    my_list.push_back(4);
+    my_list.push_front(6);
+    my_list.push_back(7);
+    my_list.push_front(3);
+    
+    List<int> list5(my_list);
+    ASSERT_TRUE(!list5.empty());
+    
+    List<int>::Iterator iter = my_list.begin();
+    List<int>::Iterator iter2 = my_list.begin();
+    --++iter;
+    ASSERT_TRUE(*iter==3);
+    my_list.pop_back();
+    ++iter;
+    ++iter;
+    ASSERT_TRUE(iter!=iter2);
+    ++iter2;
+    ASSERT_TRUE(*iter==4);
+    --iter;
+    ASSERT_TRUE(iter==iter2);
+    ++iter2;
+    my_list.erase(iter);
+    my_list.erase(iter2);
+    my_list.erase(my_list.begin());
+
+    List<int> list3(my_list);
+    ASSERT_TRUE(list3.empty()&&my_list.empty()&&list3.size()==0);
+    int i = 4; while(i-->0)my_list.push_front(i);
+    i = 3; 
+    while(i-->0){
+        my_list.pop_front(); 
+        ASSERT_TRUE(my_list.size()==i+1); 
+        ASSERT_EQUAL(my_list.front(),3-i);
+    }
+    ASSERT_TRUE(list3.empty());
+    list3.clear();
+    my_list.clear();
+    ASSERT_TRUE(my_list.size()==0);
+    ASSERT_TRUE(list5.size()!=0);
+    list5.clear();
+
+}
+
+TEST(ittershit2) {
+    List<float> l1;
+    l1.push_back(1.2);
+    l1.push_front(1.4);
+    l1.push_front(1.9);
+    l1.push_front(1.6);
+    l1.pop_front();
+
+
+    List<float> l2(l1);
+
+    List<float>::Iterator  i1 = l1.begin();
+    List<float>::Iterator  i2 = l2.begin();
+    List<float>::Iterator  i3 = l1.end();
+
+    ASSERT_TRUE(++++i1!=i3);
+    --i1;
+    --++i2;
+    ASSERT_TRUE(--i1!=i2);
+    ASSERT_TRUE(*i1==*i2);
+
+    l1.empty();
+    l2.pop_front();
+    l2.pop_front();
+    ASSERT_TRUE(l2.size()==1&&!l2.empty())
+    l2.pop_front();
+    ASSERT_TRUE(l2.size()==0&&l2.empty());
+
+
+
+
 }
 
 // pretty sure there's something wrong with copyall
@@ -91,86 +173,7 @@ TEST(dontlookatthis) {
 }
 // need test case where you insert() at end,begin,mid
 // need test case where you erase() at end,begin,mid
-/*
-TEST(ittersht) {
-    // Add test code here
-    List<int> my_list;
-    List<int> list2(my_list);
-    ASSERT_TRUE(list2.empty());
-
-    my_list.push_back(2);
-    my_list.push_front(1);
-    my_list.push_back(3);
-    my_list.push_front(0);
-    
-    List<int> list5(my_list);
-    ASSERT_TRUE(!list5.empty());
-    
-    List<int>::Iterator iter = my_list.begin();
-    ++iter;
-    
-    ASSERT_TRUE(*iter==1);
-    my_list.pop_back();
-    
-    --iter;
-    ++iter;
-    ++iter;
-    ASSERT_TRUE(*iter==2);
-    --iter;
-    my_list.pop_front();
-    ASSERT_TRUE(*iter==1);
-
-    
-    int i = 2; while(i-->0)my_list.pop_back();
-    List<int> list3(my_list);
-    ASSERT_TRUE(list3.empty());
-    i = 4; while(i-->0)my_list.push_front(i);
-    i = 3; 
-    while(i-->0){
-        my_list.pop_front(); 
-        ASSERT_TRUE(my_list.size()==i+1); 
-        ASSERT_EQUAL(my_list.front(),3-i);
-    }
-    ASSERT_TRUE(list3.empty());
-    list3.clear();
-    list2.clear();
-    my_list.clear();
-    list5.clear();
 
 
-}
-*/
-
-/*
-TEST(test_ctor) {
-    // Add test code here
-    List<double> my_list;
-    
-    my_list.push_back(5.2);
-    my_list.push_back(4.3);
-    List<double>::Iterator iter = my_list.begin();
-    ++iter;
-    my_list.push_front(6.8);
-    my_list.push_front(1.2);
-    my_list.pop_front();
-    my_list.pop_back();
-    my_list.print();
-    
-    //cout << "1: "<<*iter <<endl;
-
-    List<double> list2(my_list);
-    list2.print();
-    List<double>::Iterator iter2 = list2.begin();
-    ASSERT_TRUE(!list2.empty());
-
-
-    //ASSERT_FALSE(iter == iter2);
-    cout << "1: "<<*iter << " 2 : "<<*iter2<<endl; 
-    cout << "1: "<<iter.get() << " 2 : "<<iter2.get()<<endl; 
-
-    my_list.clear();
-    list2.clear();    
-}
-*/
 TEST_MAIN()
 
