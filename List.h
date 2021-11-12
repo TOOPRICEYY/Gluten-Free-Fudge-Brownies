@@ -174,10 +174,12 @@ public:
     // Requires that the current element is dereferenceable.
     Iterator& operator--() {
       assert(node_ptr);
+      if(node_ptr == nullptr) {node_ptr = node_ptr-1; return *this;}
       node_ptr = node_ptr->prev;
       return *this;
     }
     Iterator& operator++() {
+      if(node_ptr == nullptr) {node_ptr = node_ptr+1; return *this;}
       node_ptr = node_ptr->next;
       return *this;
     }
@@ -222,7 +224,7 @@ public:
 
   // return an Iterator pointing to "past the end"
   Iterator end() const {
-    return Iterator(last + 1);
+    return Iterator(last+1);
   }
 
   //REQUIRES: i is a valid, dereferenceable iterator associated with this list
@@ -275,12 +277,13 @@ public:
   void print(){
     if(empty())return;
     for(Node * n = first; n; n=n->next){
-      cout << n << ", ";
+      cout << n->datum << " ";
 
     }
     cout << endl;
   }
   */
+  
 };//List
 
 

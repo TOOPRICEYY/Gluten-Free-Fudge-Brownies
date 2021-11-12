@@ -44,11 +44,40 @@ TEST(ittergarb) {
     list2.clear();
     my_list.clear();
     list5.clear();
+}
 
+// pretty sure there's something wrong with copyall
+// noticed that test ittergarb only checks if copied
+// list is empty, but doesn't check if the element's
+// prev and next variables are right. also doesnt check
+// if the first and last are correct
+// i try to do that in the test below w/ list 2
+
+TEST(dontlookatthis) { 
+    List<int> l1;
+    l1.push_back(2);
+    l1.push_front(1);
+    
+    List<int>::Iterator wow = l1.begin();
+    List<int>::Iterator crack = l1.end();
+    --crack;
+    ASSERT_TRUE(*wow==1);
+    ASSERT_EQUAL(l1.back(), 2);
+    ++wow;
+    ASSERT_EQUAL(*wow, l1.back());
+    ASSERT_EQUAL(*crack,*wow);
+    
+    List<int> l2(l1);
+    List<int>::Iterator pop = l2.end();
+    --pop;
+    ASSERT_TRUE(*pop==2);
+    ++pop;
+    ASSERT_EQUAL(*pop, l2.back());
 
 }
 
-TEST(ittershit) {
+/*
+TEST(ittersht) {
     // Add test code here
     List<int> my_list;
     List<int> list2(my_list);
@@ -95,6 +124,8 @@ TEST(ittershit) {
 
 
 }
+*/
+
 /*
 TEST(test_ctor) {
     // Add test code here
@@ -116,16 +147,12 @@ TEST(test_ctor) {
     list2.print();
     List<double>::Iterator iter2 = list2.begin();
     ASSERT_TRUE(!list2.empty());
-<<<<<<< HEAD
-    //ASSERT_EQUAL(*iter, *iter2);
-=======
 
 
     //ASSERT_FALSE(iter == iter2);
     cout << "1: "<<*iter << " 2 : "<<*iter2<<endl; 
     cout << "1: "<<iter.get() << " 2 : "<<iter2.get()<<endl; 
 
->>>>>>> 600d97c81409318f66c752429a9740db3ddfc19c
     my_list.clear();
     list2.clear();    
 }
