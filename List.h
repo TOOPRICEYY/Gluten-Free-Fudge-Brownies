@@ -31,10 +31,12 @@ public:
   ~List() {  // dtor
     clear();
   }
-
-
-
-
+List & operator=(const List &rhs) {
+  if (this == &rhs) {return *this; }
+  empty();
+  copy_all(rhs);
+  return *this;
+}
 
   //EFFECTS:  returns true if the list is empty
   bool empty() const {
@@ -172,14 +174,13 @@ public:
   public:
     // This operator will be used to test your code. Do not modify it.
     // Requires that the current element is dereferenceable.
+    Iterator() : node_ptr(nullptr) {}
     Iterator& operator--() {
       assert(node_ptr);
-      if(node_ptr == nullptr) {node_ptr = node_ptr-1; return *this;}
       node_ptr = node_ptr->prev;
       return *this;
     }
     Iterator& operator++() {
-      if(node_ptr == nullptr) {node_ptr = node_ptr+1; return *this;}
       node_ptr = node_ptr->next;
       return *this;
     }
@@ -195,12 +196,6 @@ public:
       if(node_ptr != rhs.node_ptr) {return true;}
       return false;
     }
-/*
-    Node * get(){
-      return node_ptr;
-    }
-  */
-
 
 
   private:
@@ -224,7 +219,7 @@ public:
 
   // return an Iterator pointing to "past the end"
   Iterator end() const {
-    return Iterator(last+1);
+    return Iterator(last->next);
   }
 
   //REQUIRES: i is a valid, dereferenceable iterator associated with this list
@@ -273,7 +268,7 @@ public:
   ++siz; // increment size
   }
 
-  /*
+/*  
   void print(){
     if(empty())return;
     for(Node * n = first; n; n=n->next){
@@ -282,7 +277,7 @@ public:
     }
     cout << endl;
   }
-  */
+*/
   
 };//List
 

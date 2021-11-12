@@ -59,23 +59,38 @@ TEST(dontlookatthis) {
     l1.push_front(1);
     
     List<int>::Iterator wow = l1.begin();
-    List<int>::Iterator crack = l1.end();
-    --crack;
+    --++wow;
     ASSERT_TRUE(*wow==1);
+    ASSERT_TRUE(*wow!=2);
     ASSERT_EQUAL(l1.back(), 2);
     ++wow;
     ASSERT_EQUAL(*wow, l1.back());
-    ASSERT_EQUAL(*crack,*wow);
     
-    List<int> l2(l1);
-    List<int>::Iterator pop = l2.end();
-    --pop;
-    ASSERT_TRUE(*pop==2);
+    List<int> l2;
+    l2 = l1;
+    List<int>::Iterator pop(l2.begin());
+    l2.insert(pop,3);
+    List<int>::Iterator pop2(l2.begin());
+    ASSERT_EQUAL(*pop2, 3);
+    ASSERT_EQUAL(*pop,1);
     ++pop;
-    ASSERT_EQUAL(*pop, l2.back());
+    ASSERT_EQUAL(*pop,2);
+    l2.erase(pop);
+
+    List<int> l3(l2);
+    List<int>::Iterator crack;
+    crack = l3.begin();
+    ASSERT_EQUAL(*crack, 3);
+    l3.pop_back();
+    l3.pop_front();
+    ASSERT_TRUE(l3.empty());
+    l1.clear();
+    l2.clear();
+
 
 }
-
+// need test case where you insert() at end,begin,mid
+// need test case where you erase() at end,begin,mid
 /*
 TEST(ittersht) {
     // Add test code here
