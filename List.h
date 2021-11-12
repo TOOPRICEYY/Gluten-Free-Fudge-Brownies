@@ -193,6 +193,11 @@ public:
       if(node_ptr != rhs.node_ptr) {return true;}
       return false;
     }
+/*
+    Node * get(){
+      return node_ptr;
+    }
+  */
 
 
 
@@ -270,7 +275,7 @@ public:
   void print(){
     if(empty())return;
     for(Node * n = first; n; n=n->next){
-      cout << n->datum << ", ";
+      cout << n << ", ";
 
     }
     cout << endl;
