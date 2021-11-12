@@ -62,7 +62,7 @@ TEST(test_ctor) {
     List<double> list2(my_list);
     //List<double>::Iterator iter2 = list2.begin();
     ASSERT_TRUE(!list2.empty());
-    //ASSERT_EQUAL(iter, iter2);
+    //ASSERT_EQUAL(*iter, *iter2);
     my_list.clear();
     list2.clear();    
 }
